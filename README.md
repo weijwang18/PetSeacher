@@ -1,15 +1,16 @@
-# (Application Name)
+# Pet Searcher
 
 #### (Brief Description of Application)
 
-#### By (Your Name Here)
+#### By Winnie Wang && Matt Herbert
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+HTML/CSS
+JavaScript
+Bootstrap
+JQuery
+webpack
 
 ## Description
 
@@ -20,6 +21,9 @@
 * _in a simple_
 * _easy-to-understand_
 * _format_
+
+* run $npm install to install dependencies
+* run $ npm install dotenv-webpack@2.0.0 --save-dev
 
 ## Known Bugs
 
