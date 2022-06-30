@@ -20,11 +20,11 @@ function displayAnimals(data) {
       <br>
       <img src="${data.animals[i].photos[0].medium}"></img>
       <br>
-      Name: ${data.animals[i].name}
+      <strong>Name:</strong> ${data.animals[i].name}
       <br>
-      Location: ${data.animals[i].contact.address.city}
+      <strong>Location:</strong> ${data.animals[i].contact.address.city}
       <br>
-      Contact: ${data.animals[i].contact.email}
+      <strong>Contact:</strong> ${data.animals[i].contact.email}
       </div>`
     );
   }
