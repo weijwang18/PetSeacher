@@ -4,8 +4,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import PetSearch from "./js/search.js";
 
-function getElements(resp) {
-    console.log(resp);
+function getElements(data) {
+  console.log(data);
+  if (data.animals) {
+    $(".output").text(`${JSON.stringify(data.animals[0].description)}`);
+    $(".output").append(`<img src="${data.animals[0].photos[1].small}"></img`);
+  } else {
+    console.log("no");
+  }
+}
+
+async function makeApiCall(breedName, postalCode) {
+  const response = await PetSearch.getPet(breedName, postalCode);
+  console.log(response);
+  return response;
 }
 
 $(document).ready(function () {
@@ -13,15 +25,11 @@ $(document).ready(function () {
     event.preventDefault();
     let breedName = $("#dogs").val();
     let postalCode = $("#zip").val();
-    // let test = new PetSearch();
-    // console.log(PetSearch.getPet(breedName,postalCode));
-    // PetSearch.getPet(breedName, postalCode).then(function (animals) {
-    //   console.log("i am working");
-    //   returnOutput(animals);
-    (async function () {
-      const resp = await PetSearch.getPet(breedName, postalCode);
-      getElements(resp);
-    })();
+    let result = makeApiCall(breedName, postalCode);
+    result.then(function(data) {
+      console.log(data);
+      getElements(data);
+    })
   });
 });
 
